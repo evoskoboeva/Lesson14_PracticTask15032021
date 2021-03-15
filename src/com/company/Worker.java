@@ -1,18 +1,14 @@
 package com.company;
 
+import java.util.Comparator;
+
 abstract public class Worker implements IWorker{
     private String id;
     private String name;
     private int yearsWork;
     protected double pay;
 
-    /*public static Comparator<Employee> BySalary = new Comparator<>() {
-        @Override
-        public int compare(Employee employee1, Employee employee2) {
-            return (int) (employee1.CalculateSalary() - employee2.CalculateSalary());
-        }
-    };*/
-
+    public static Comparator<Worker> BySalary = (w1, w2) -> (int) (w1.Calculate() - w2.Calculate());
 
     private TypeWorker typeWorker;
 

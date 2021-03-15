@@ -5,7 +5,7 @@ public class Main {
     public static void main(String[] args) {
 
         WorkerConst workerConst = new WorkerConst
-                ("1", "ivanov", 10, TypeWorker.constPay, 10, 7000);
+                ("1", "ivanov", 10, TypeWorker.constPay, 10, 3000);
 
 
         WorkerHourly workerHourly = new WorkerHourly("2", "petrof", 8, TypeWorker.hourlyPay,
@@ -16,11 +16,13 @@ public class Main {
 
 
         Stuff stuff = new Stuff();
-        stuff.Add(workerConst);
         stuff.Add(workerHourly);
+        stuff.Add(workerConst);
 
         System.out.println(stuff);
-
+        stuff.sortBySalary();
+        System.out.println();
+        System.out.println(stuff);
 
     }
 }

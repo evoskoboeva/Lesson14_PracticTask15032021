@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Stuff {
 
@@ -31,12 +32,14 @@ public class Stuff {
         this.stuff = stuff;
     }
 
-    public  void Add(Worker worker){
+    public void Add(Worker worker) {
 
         stuff.add(worker);
     }
 
-
+    public void sortBySalary() {
+        Collections.sort(stuff, Worker.BySalary);
+    }
 }
 
 
