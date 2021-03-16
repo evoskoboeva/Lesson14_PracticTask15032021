@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Task1;
 
 public class WorkerHourly extends Worker {
     private int HourWork;

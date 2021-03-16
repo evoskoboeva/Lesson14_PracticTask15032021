@@ -1,4 +1,4 @@
-package com.company;
+package com.company.Task1;
 
 public class WorkerConst extends Worker{
 
