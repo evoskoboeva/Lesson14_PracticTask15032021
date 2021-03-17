@@ -19,9 +19,12 @@ public class Main {
         System.out.println(MyList);
         int get = 8;
         System.out.println("get " +get +"=  "+ MyList.get(get));
-        int del = 15;
+        int del = 5;
         MyList.DelByIndex(del);
         System.out.println("after Del"+del+"=  "+MyList);
+        MyList.ReadOnlySize();
+        MyList.DelAll();
+        System.out.println("MyList after clean - "+MyList);
 
     }
 }
