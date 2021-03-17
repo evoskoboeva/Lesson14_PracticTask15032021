@@ -1,15 +1,27 @@
 package com.company.Task2;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
-        MyList customList = new MyList();
-        for (int i = 0; i < 10; i++) {
-            customList.add(i);
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println("Enter size MyList");
+        int size = scanner.nextInt();
+        MyList MyList = new MyList();
+        for (int i = 0; i < size; i++) {
+            MyList.add(random.nextInt(10));
         }
-        System.out.println(customList);
-        System.out.println("test get " + customList.get(8));
-        customList.remove(5);
+        System.out.println(MyList);
+        int get = 8;
+        System.out.println("get " +get +"=  "+ MyList.get(get));
+        int del = 15;
+        MyList.DelByIndex(del);
+        System.out.println("after Del"+del+"=  "+MyList);
 
     }
 }

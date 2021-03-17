@@ -3,65 +3,46 @@ package com.company.Task2;
 import java.util.Arrays;
 
 public class MyList {
-    private int[] values = new int[0];
-    /*
-     * массив, в котором будут храниться все значения
-     * */
-    private int currentIndex = 0;
-    /*
-     * самый максимальный размер массива , который заполнен реальными данными
-     * */
+    private int[] MyList = new int[0];
+
+    private int index = 0;
 
     @Override
-    public String toString()
-    {
-        return "CustomList{" +
-                "values=" + Arrays.toString(values) +
-                '}';
+    public String toString() {
+        return
+                "MyList=" + Arrays.toString(MyList) ;
     }
 
-    public void add(int i)
+    public void add(int element)
+
     {
-        ensureArraySize();// проверка: хватит ли нам текущего массива, чтобы вставить в него еще одно значение
-        values[currentIndex++] = i;
+        int[] temp;
+        temp = Arrays.copyOf(MyList,MyList.length+1);
+        temp[index++] = element;
+        MyList = Arrays.copyOf(temp,temp.length);
 
     }
 
-    private void ensureArraySize()
-    {
 
-        if (currentIndex + 1 > values.length) {
-            values = Arrays.copyOf(values, 3 * values.length / 2 + 1);
-        }
-
-        /*
-         * в данном логическом выражение проверяется: хватит ли нам места
-         * если нет, то копируем массив в массив по больше.
-         * для расчета нужного размера использовалася формула 3x/2+1;
-         * */
-    }
 
     public int get(int index)
     {
-        if (index > currentIndex - 1 || index < 0) { throw new RuntimeException("index out of bound"); }
-        return values[index];
-        /*
-         * для получения нужного значения делаем все тоже самое,
-         * что и с обычным массивом.
-         * только проверяем индекс, который на присылают
-         * */
+        if (index > this.index - 1 || index < 0) { throw new RuntimeException("index out of bound"); }
+        return MyList[index];
+
     }
 
-    public void remove(int index)
+    public void DelByIndex(int index)
     {
-        System.arraycopy(values, index + 1, values, index, currentIndex - 1 - index);
-        values[--currentIndex] = 0;
-        System.out.println(Arrays.toString(values));
-        /*
-         * для удаление также используется копирование,
-         * но здесь мы корируем две части одного массива в другой
-         * без учета удаляемой переменной.
-         * */
+        if (index > this.index - 1 || index < 0) { throw new RuntimeException("index out of bound"); }
+        else {
+        MyList[index]=0;
+        for (int i = index; i < MyList.length-1; i++) {
+            MyList[i] = MyList[i+1];
+        }
+        MyList = Arrays.copyOf(MyList,MyList.length-1);
+        }
+
     }
 
 }
