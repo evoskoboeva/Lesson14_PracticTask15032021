@@ -8,65 +8,25 @@ abstract public class Worker implements IWorker{
     private int yearsWork;
     protected double pay;
 
-    public static Comparator<Worker> BySalary = (w1, w2) -> (int) (w1.Calculate() - w2.Calculate());
+    public static Comparator<Worker> BySalary = (w1, w2) -> (int) (w2.Calculate() - w1.Calculate());
 
     private TypeWorker typeWorker;
 
     public Worker(String id, String name, int yearsWork,  TypeWorker typeWorker) {
         this.id = id;
-        this.name = name;
+        this.name = name.substring(0,1).toUpperCase()+name.substring(1);
         this.yearsWork = yearsWork;
         this.typeWorker = typeWorker;
     }
+
 
     @Override
     public String toString() {
         this.Calculate();
         return this.getClass().getSimpleName() +
-                "id='" + id + '\'' +
+                " id='" + id + '\'' +
                 ", name='" + name + '\'' +
-                ", yearsWork=" + yearsWork +
-
-                ", typeWorker=" + typeWorker +
-                "pay: "+pay+
-                '}';
+                ", pay= "+String.format("%10.2f грн.",pay);
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getYearsWork() {
-        return yearsWork;
-    }
-
-    public void setYearsWork(int yearsWork) {
-        this.yearsWork = yearsWork;
-    }
-
-
-
-    public TypeWorker getTypeWorker() {
-        return typeWorker;
-    }
-
-    public void setTypeWorker(TypeWorker typeWorker) {
-        this.typeWorker = typeWorker;
-    }
-
-
-    public static void add(Worker worker) {
-    }
 }

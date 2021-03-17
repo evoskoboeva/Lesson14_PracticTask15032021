@@ -11,11 +11,11 @@ public class Main {
         hashMaTest.put("micro5", 12345610);
         hashMaTest.put("micro6", 12345611);
         hashMaTest.put("micro6", 1111111111);
-        System.out.println(hashMaTest.get("micro6"));
+        /*System.out.println(hashMaTest.get("micro6"));
         System.out.println(hashMaTest.get("micro3"));
         System.out.println(hashMaTest.get("micro4"));
         System.out.println(hashMaTest.get("micro5"));
-        System.out.println(hashMaTest.get("micro2345"));
+        System.out.println(hashMaTest.get("micro2345"));*/
 
 
         System.out.println("\nCustom Map Test");

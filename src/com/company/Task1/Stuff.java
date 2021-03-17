@@ -4,29 +4,26 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Stuff {
+    ArrayList<Worker> stuff;
 
-    public Stuff(ArrayList<Worker> stuff) {
 
-        this.stuff = stuff;
-    }
-
-    ArrayList<Worker> stuff = new ArrayList<>();
 
     public Stuff() {
-
-        this.stuff = stuff;
+        this.stuff = new ArrayList<Worker>();
     }
 
-    public ArrayList<Worker> getStuff() {
-        return stuff;
+    public Worker getStuff(int i) {
+        return stuff.get(i);
     }
 
     @Override
     public String toString() {
-        return "Stuff{" +
-                "stuff=" + stuff +
-                '}';
-    }
+        String temp = "Staff ";
+        for (Worker worker:stuff) {
+                  temp += "\n"+worker;
+                }
+         return temp;
+         }
 
     public void setStuff(ArrayList<Worker> stuff) {
         this.stuff = stuff;
@@ -40,6 +37,8 @@ public class Stuff {
     public void sortBySalary() {
         Collections.sort(stuff, Worker.BySalary);
     }
+
+
 }
 
 

@@ -4,17 +4,16 @@ public class WorkerConst extends Worker{
 
     private final int min = 6000;
     private final int DAY = 21;
-    private int DayWork;
+    protected  int DayWork;
+    protected  int PayMounth;
 
-    private void setPayMounth(double payMounth) {
-        if (this.PayMounth < min){
-            this.PayMounth = 6000;
-        }
+    private void setPayMounth(double PayMounth) {
+        this.PayMounth = PayMounth >= min?  (int)PayMounth :min;
     }
 
-    private double PayMounth;
 
-    public WorkerConst(String id, String name, int yearsWork, TypeWorker typeWorker, int dayWork, double payMounth) {
+
+    public WorkerConst(String id, String name, int yearsWork, TypeWorker typeWorker, int dayWork, int PayMounth) {
         super(id, name, yearsWork, typeWorker);
         this.DayWork = dayWork;
         this.setPayMounth(PayMounth);
@@ -23,7 +22,7 @@ public class WorkerConst extends Worker{
 
 
 
-    public int getDayWork() {
+    public  int getDayWork() {
         return DayWork;
     }
 
@@ -32,18 +31,17 @@ public class WorkerConst extends Worker{
     }
 
     public double getPayMounth() {
-        return PayMounth;
+        return this.PayMounth;
     }
 
-    @Override
+   @Override
     public String toString() {
-        return super.toString() +
-                "min=" + min +
-                ", DAY=" + DAY +
-                ", DayWork=" + DayWork +
-                ", PayMounth=" + PayMounth +
-                '}';
+
+        return super.toString();
+        //+this.getDayWork()+this.getPayMounth();
+
     }
+
 
 
 
