@@ -1,26 +1,71 @@
 package com.company.Task3;
 
-public class MyDictionary <K,V> {
-    private final Entry<K, V>[] table = new Entry[16];
+import java.util.Arrays;
+
+public class Put<TKey, TValue> implements IMyDictionary <TKey, TValue> {
+
+    int size = 10;
+    private final Put<TKey, TValue>[] myDictionaries = new Put[size];
+
+    /*private TKey[] tkey = (TKey[]) new String[size];
+    private TValue[] tvalue = (TValue[]) new String[size];*/
+
+    @Override
+    public String toString() {
+        return "MyDictionary{" +
+                "size=" + size +
+                ", myDictionaries=" + Arrays.toString(myDictionaries) +
+                '}';
+    }
+
+    @Override
+    public Put(TKey key, TValue value) {
+        for (int i = 0; i < myDictionaries.length; i++) {
+            if (myDictionaries[i] != null){
+                tkey[i] = key;
+                tvalue[i]=value;
+                break;
+            }
+            else {
+                size++;
+                tkey[size] = key;
+                tvalue[size]=value;
+                break;
+            }
+
+        }
+
+    }
+
+    @Override
+    public void index() {
+
+    }
+
+    @Override
+    public void readSize() {
+
+    }
+    //private final Entry<TKey, TValue>[] table = new Entry[16];
     /*
      * задаем главный массив,
      * в котором и будем хранить данные
      * */
 
-    public void put(K key, V value)
+  /*  public void put(TKey key, TValue value)
     {
         int newHash = newHashGenerator(key); //  генерируем "рандомное" значение, используя ключ
         int index = indexFor(newHash); //table.length - с учетом размера массива
-        Entry<K, V> entry = table[index];
+        Entry<TKey, TValue> entry = table[index];
         if (entry == null) {
-            Entry<K, V> newEntry = new Entry<K, V>(key, value, newHash, null);
+            Entry<TKey, TValue> newEntry = new Entry<TKey, TValue>(key, value, newHash, null);
             table[index] = newEntry;
             // просто кладем значение в ячейку, если оно null
         }
 
         //todo
 
-        /*
+        *//*
          * В качестве Д/З:
          * реализуйте, чтобы добавлялись значения в мапу,
          * если она пришла в ячейку, а она занята.
@@ -33,10 +78,10 @@ public class MyDictionary <K,V> {
          *
          * И так по циклу пока не дойдем, что nexEntry = null.
          * Тогда вписываем туда наше значение
-         * */
+         * *//*
     }
 
-    private int newHashGenerator(K key)
+    private int newHashGenerator(TKey key)
     {
         int hash = key.hashCode();
         hash = hash ^ hash >>> 20 ^ hash >>> 12;
@@ -47,19 +92,19 @@ public class MyDictionary <K,V> {
     private int indexFor(int newHash)
     {
         return newHash & (table.length - 1);
-        /*
+        *//*
          * испоьзуем побитовое И для получения нужного нам индекса
-         * */
+         * *//*
 
     }
 
-    private V get(K key)
+    private TValue get(TKey key)
     {
         // todo
-        /*
+        *//*
          * Также в качестве Д/З реализуйте get
          * Делается так же, как и put
-         * */
+         * *//*
         return null;
     }
 
@@ -130,6 +175,6 @@ public class MyDictionary <K,V> {
         {
             this.nexEntry = nexEntry;
         }
-    }
+    }*/
 
 }
